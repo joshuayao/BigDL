@@ -53,7 +53,7 @@ if [ $MVN_INSTALL -eq 0 ]; then
   exit 1
 fi
 
-mvn clean package -DskipTests $*
+mvn clean package -DskipTests -Dmaven.javadoc.skip=true $*
 
 BASEDIR=$(dirname "$0")
 DIST_DIR=$BASEDIR/dist

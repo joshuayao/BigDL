@@ -43,7 +43,8 @@ object Utils {
     overWriteCheckpoint: Boolean = false,
     learningRate: Double = 0.01,
     weightDecay: Double = 0.0005,
-    graphModel: Boolean = false
+    graphModel: Boolean = false,
+    appName: String = "unknown app"
   )
 
   val trainParser = new OptionParser[TrainParams]("BigDL Vgg on Cifar10 Example") {
@@ -80,6 +81,9 @@ object Utils {
     opt[Unit]('g', "graphModel")
       .text("use graph model")
       .action((x, c) => c.copy(graphModel = true))
+    opt[String]("appName")
+      .text("Application name for Graph")
+      .action((x, c) => c.copy(appName = x))
   }
 
   case class TestParams(
